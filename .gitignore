@@ -1,7 +1,7 @@
-node_modules/
-dist/
-storage/
-.apify/
+/node_modules/
+/dist/
+/storage/
+/.apify/
 *.log
 .DS_Store
 .env
