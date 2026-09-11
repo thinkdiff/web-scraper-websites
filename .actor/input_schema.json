@@ -70,12 +70,14 @@
       "title": "Country Code (ISO 3166-1 alpha-2)",
       "type": "string",
       "description": "Used for contextual phone normalization (e.g., 'IN', 'US', 'GB', 'AE').",
+      "editor": "textfield",
       "default": "IN"
     },
     "language": {
       "title": "Language",
       "type": "string",
       "description": "Preferred language for queries.",
+      "editor": "textfield",
       "default": "en"
     },
     "excludeClosedBusinesses": {
@@ -113,6 +115,7 @@
       "title": "Apify Google Maps Actor ID",
       "type": "string",
       "description": "Apify Actor ID to call when discoveryProvider is 'apify_actor'.",
+      "editor": "textfield",
       "default": "compass/crawler-google-places"
     }
   },
