@@ -1,12 +1,15 @@
 # Production Dockerfile for Apify Actor using Node.js 20
 FROM apify/actor-node:20 AS builder
 
+# Ensure development dependencies are installed
+ENV NODE_ENV=development
+
 # Copy package files
 COPY package*.json ./
 
-# Install all dependencies including devDependencies for building
+# Install all dependencies
 RUN npm --quiet set progress=false \
-    && npm install --omit=optional
+    && npm install --include=dev --omit=optional
 
 # Copy source code and config
 COPY tsconfig.json ./
@@ -33,6 +36,9 @@ RUN npm --quiet set progress=false \
 # Copy built code from builder
 COPY --from=builder /usr/src/app/dist ./dist
 COPY .actor ./.actor
+
+# Indicate running in Actor environment
+ENV APIFY_IS_AT_HOME=1
 
 # Run the actor
 CMD ["npm", "start"]
