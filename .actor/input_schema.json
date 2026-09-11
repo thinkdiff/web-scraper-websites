@@ -1,0 +1,120 @@
+{
+  "title": "QEVN Website Opportunity Lead Finder Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "locations": {
+      "title": "Target Locations",
+      "type": "array",
+      "description": "List of cities or regions to search in (e.g., 'Rajkot, Gujarat, India', 'Ahmedabad, Gujarat, India').",
+      "editor": "stringList",
+      "prefill": ["Rajkot, Gujarat, India"]
+    },
+    "searchQueries": {
+      "title": "Search Queries / Niches",
+      "type": "array",
+      "description": "Niches or business categories (e.g., 'real estate', 'jewellery', 'boutique', 'salon', 'restaurant').",
+      "editor": "stringList",
+      "prefill": ["real estate", "jewellery", "boutique"]
+    },
+    "maxResultsPerQuery": {
+      "title": "Max Results Per Query",
+      "type": "integer",
+      "description": "Maximum number of discovery results per location + search query combination.",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "websiteFilter": {
+      "title": "Website Filter Mode",
+      "type": "string",
+      "description": "Filter businesses by website status: WITHOUT_WEBSITE (only businesses without official websites), WITH_WEBSITE (only businesses with official websites), or ALL.",
+      "default": "WITHOUT_WEBSITE",
+      "editor": "select",
+      "enum": ["WITHOUT_WEBSITE", "WITH_WEBSITE", "ALL"],
+      "enumTitles": ["Without Official Website (Leads)", "With Official Website", "All Businesses"]
+    },
+    "requirePhone": {
+      "title": "Require Public Phone",
+      "type": "boolean",
+      "description": "When enabled, businesses without a public phone number are filtered out.",
+      "default": true
+    },
+    "enrichSocialProfiles": {
+      "title": "Enrich Social Profiles",
+      "type": "boolean",
+      "description": "Discover and match public Instagram, Facebook, LinkedIn, YouTube, X, and Pinterest profiles.",
+      "default": true
+    },
+    "enrichEmails": {
+      "title": "Enrich Public Emails (Safe)",
+      "type": "boolean",
+      "description": "Extract publicly visible business contact emails from legitimate public business pages.",
+      "default": false
+    },
+    "searchEngineEnrichment": {
+      "title": "Search Engine Verification & Enrichment",
+      "type": "boolean",
+      "description": "Perform targeted public web queries (1–3 max) to verify website status and discover public business profiles.",
+      "default": true
+    },
+    "minimumLeadScore": {
+      "title": "Minimum Lead Score",
+      "type": "integer",
+      "description": "Only export leads with a score equal to or higher than this threshold (0–100 scale).",
+      "default": 60,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "countryCode": {
+      "title": "Country Code (ISO 3166-1 alpha-2)",
+      "type": "string",
+      "description": "Used for contextual phone normalization (e.g., 'IN', 'US', 'GB', 'AE').",
+      "default": "IN"
+    },
+    "language": {
+      "title": "Language",
+      "type": "string",
+      "description": "Preferred language for queries.",
+      "default": "en"
+    },
+    "excludeClosedBusinesses": {
+      "title": "Exclude Closed Businesses",
+      "type": "boolean",
+      "description": "Exclude permanently or temporarily closed businesses from lead results.",
+      "default": true
+    },
+    "maxConcurrency": {
+      "title": "Max Concurrency",
+      "type": "integer",
+      "description": "Number of concurrent enrichment and verification requests.",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 20
+    },
+    "requestTimeoutMs": {
+      "title": "Request Timeout (ms)",
+      "type": "integer",
+      "description": "Timeout in milliseconds for network requests.",
+      "default": 30000,
+      "minimum": 5000,
+      "maximum": 120000
+    },
+    "discoveryProvider": {
+      "title": "Discovery Provider",
+      "type": "string",
+      "description": "Provider to use for business discovery: 'apify_actor' calls an existing Google Maps Actor, or 'direct_fallback' executes standalone crawler.",
+      "default": "apify_actor",
+      "editor": "select",
+      "enum": ["apify_actor", "direct_fallback"],
+      "enumTitles": ["Apify Google Maps Actor", "Direct Fallback Crawler"]
+    },
+    "mapsActorId": {
+      "title": "Apify Google Maps Actor ID",
+      "type": "string",
+      "description": "Apify Actor ID to call when discoveryProvider is 'apify_actor'.",
+      "default": "compass/crawler-google-places"
+    }
+  },
+  "required": ["locations", "searchQueries"]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "qevn-website-opportunity-lead-finder",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "QEVN Website Opportunity Lead Finder — Production Apify Actor for discovering high-potential website development leads with verified public business presence and no credible official website.",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "apify",
+    "actor",
+    "lead-generation",
+    "website-opportunity",
+    "local-business",
+    "crawlee",
+    "typescript"
+  ],
+  "author": "QEVN",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "apify": "^3.2.6",
+    "crawlee": "^3.12.2",
+    "cheerio": "^1.0.0",
+    "libphonenumber-js": "^1.11.19",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.19",
+    "@types/cheerio": "^0.22.35",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "actorSpecification": 1,
+  "name": "qevn-website-opportunity-lead-finder",
+  "title": "QEVN Website Opportunity Lead Finder",
+  "description": "Identifies local businesses that are high-converting website-development prospects: active businesses with phone, social presence, and reviews, but no credible official website.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "ts-crawlee"
+  },
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json"
+}
